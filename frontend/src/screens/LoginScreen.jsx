@@ -83,5 +83,3 @@ return (
 }
 
 export default LoginScreen
-
-
