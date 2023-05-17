@@ -22,18 +22,17 @@ const RegisterScreen = () => {
     const { userInfo } = useSelector((state) => state.auth);
 
     const { search } = useLocation();
-    const sp = new URLSearchParams(search)
+    const sp = new URLSearchParams(search);
     const redirect = sp.get('redirect') || '/';
 
     useEffect(() => {
         if (userInfo) {
         navigate(redirect);
         }
-    }, [navigate, redirect, userInfo]);
+    }, [userInfo, redirect, navigate]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
-
         if (password !== confirmPassword) {
             toast.error('Passwords do not match');
         } else {
